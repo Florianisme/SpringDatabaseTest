@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation 'org.springframework:spring-test:5.3.7'
+    implementation 'org.springframework:spring-context:5.3.7'
+    implementation 'org.springframework.data:spring-data-jpa:2.5.1'
+    implementation 'org.apache.commons:commons-dbcp2:2.8.0'
+    implementation 'org.hibernate:hibernate-core:5.5.0.Final'
+    implementation 'org.liquibase:liquibase-core:4.3.5'
+    implementation 'com.google.auto.service:auto-service:1.0'
+    implementation 'org.springframework:spring-core:5.3.3'
+    implementation 'com.h2database:h2:1.4.200'
+}
+
+test {
+    useJUnitPlatform()
+}
