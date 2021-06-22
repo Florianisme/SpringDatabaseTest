@@ -11,7 +11,7 @@ This is a short example on how to get a Session instance
 public class InitTest {
 
 	@Test
-	public void testSessionInitialization(@Autowired Session session) {
+	public void testSession(@Autowired Session session) {
 	    // Get a fresh session for each test
 	    // Sessions are automatically closed after each test
 	}
