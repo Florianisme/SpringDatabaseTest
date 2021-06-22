@@ -22,3 +22,16 @@ public class InitTest {
 	}
 }
 ```
+## Use this library
+### Gradle
+```groovy
+testImplementation 'de.florianisme:springtest:0.0.1'
+```
+### Maven
+```xml
+<dependency>
+	<groupId>de.florianisme</groupId>
+	<artifactId>springtest</artifactId>
+	<version>0.0.1</version>
+</dependency>
+```
