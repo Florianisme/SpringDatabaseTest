@@ -1,4 +1,8 @@
 # Spring Database Test
+[![](https://jitpack.io/v/Florianisme/SpringDatabaseTest.svg)](https://jitpack.io/#Florianisme/SpringDatabaseTest)
+![Master CI](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/master.yml/badge.svg)
+![CI](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/ci.yml/badge.svg)
+
 ## Summary
 This library provides a simple annotation for your JUnit Database Tests in your Spring Boot application.
 It supports liquibase changelogs which will be run before each Testcase
