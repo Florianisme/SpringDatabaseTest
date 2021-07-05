@@ -1,6 +1,6 @@
 # Spring Database Test
 
-![CD](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/cd.yml/badge.svg)
+[![CD](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/cd.yml/badge.svg?branch=0.0.3)](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/cd.yml)
 ![CI](https://github.com/Florianisme/SpringDatabaseTest/actions/workflows/ci.yml/badge.svg)
 
 ## Summary
@@ -21,7 +21,7 @@ for each run. Liquibase changelogs can be run before each Testcase.
   <td>
 
 ```groovy
-testImplementation 'de.florianmoehle:springtest:0.0.2'
+testImplementation 'de.florianmoehle:springtest:0.0.3'
 ```
 
    </td>
@@ -32,7 +32,7 @@ testImplementation 'de.florianmoehle:springtest:0.0.2'
 <dependency>
     <groupId>de.florianmoehle</groupId>
     <artifactId>springtest</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <scope>test</scope>
 </dependency>
 ```

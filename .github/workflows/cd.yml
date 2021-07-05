@@ -21,7 +21,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Publish
-      run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --info
+      run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
       env:
         OSSRHUSER: ${{ secrets.OSSRHUSER }}
         OSSRHPASSWORD: ${{ secrets.OSSRHPASSWORD }}
