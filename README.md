@@ -99,13 +99,13 @@ public class InitTest {
 
 Configuration works by passing parameters in the `@DatabaseTest` annotation. Here are all properties and their default values.
 
-| Parameter        | Default Value |
-| ------------- |:-------------|
-| dbJdbcPath      | `jdbc:h2:mem:database` |
-| dbUser      | `sa`      |
-| dbPassword |       |
-| enableLiquibase |    `true`   |
-| cleanDatabase |    `true`   |
-| changelogPath |    `classpath:/db/changelog/db.changelog-master.xml`   |
-| annotatedClasses |    `[]`   |
-| annotatedPackages |    `[]`   |
+| Parameter        | Default Value |  Additional Information   |
+| ------------- |:-------------|:------------------|
+| dbJdbcPath      | `jdbc:h2:mem:database` |  Only H2 is currently supported      |
+| dbUser      | `sa`      |        |
+| dbPassword |       |        |
+| enableLiquibase |    `true`   |        |
+| cleanDatabase |    `true`   |        |
+| changelogPath |    `classpath:/db/changelog/db.changelog-master.xml`   |        |
+| annotatedClasses |    `[]`   |    Either this or `annotatedPackages` has to be set    |
+| annotatedPackages |    `[]`   |    Either this or `annotatedClasses` has to be set    |
