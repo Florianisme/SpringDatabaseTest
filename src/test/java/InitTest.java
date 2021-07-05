@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.florianisme.springtest.DatabaseTest;
+import de.florianmoehle.springtest.DatabaseTest;
 
 @DatabaseTest(annotatedPackages = "de.florianisme.springtest", enableLiquibase = false)
 public class InitTest {

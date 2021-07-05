@@ -1,4 +1,4 @@
-package de.florianisme.springtest;
+package de.florianmoehle.springtest;
 
 import java.util.function.Supplier;
 import javax.sql.DataSource;
@@ -11,8 +11,6 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.test.context.TestContext;
 import org.springframework.test.context.support.AbstractTestExecutionListener;
-
-import com.google.common.base.Strings;
 
 import liquibase.exception.LiquibaseException;
 import liquibase.integration.spring.SpringLiquibase;

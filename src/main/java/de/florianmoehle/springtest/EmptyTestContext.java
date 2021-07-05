@@ -1,4 +1,4 @@
-package de.florianisme.springtest;
+package de.florianmoehle.springtest;
 
 import org.springframework.context.annotation.Configuration;
 

@@ -1,8 +1,19 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
 }
 
-group 'org.example'
+plugins {
+    id 'java'
+    id "signing"
+    id "maven-publish"
+    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
+}
+
+group 'de.florianmoehle'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,18 +21,74 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
     implementation 'org.springframework:spring-test:5.3.7'
     implementation 'org.springframework:spring-context:5.3.7'
-    implementation 'org.springframework.data:spring-data-jpa:2.5.1'
+    implementation 'org.springframework.data:spring-data-jpa:2.5.2'
     implementation 'org.apache.commons:commons-dbcp2:2.8.0'
-    implementation 'org.hibernate:hibernate-core:5.5.0.Final'
+    implementation 'org.hibernate:hibernate-core:5.5.3.Final'
     implementation 'org.liquibase:liquibase-core:4.3.5'
     implementation 'com.google.auto.service:auto-service:1.0'
-    implementation 'org.springframework:spring-core:5.3.3'
+    implementation 'org.springframework:spring-core:5.3.7'
     implementation 'com.h2database:h2:1.4.200'
+}
+
+group = "de.florian-moehle"
+version = System.getenv("GITHUB_VERSION") ?: "1.0.0-SNAPSHOT"
+description = "A Spring Boot extension which gives you a clean DB session for each test run"
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "spring-database-test"
+
+            from components.java
+
+            pom {
+                name = "Spring Database Test"
+                description = "A Spring Boot extension which gives you a clean DB session for each test run"
+                url = "https://github.com/Florianisme/SpringDatabaseTest"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "Florianisme"
+                        name = "Florian Möhle"
+                        email = "florian.m9782@gmail.com"
+                    }
+                }
+                issueManagement {
+                    system = "GitHub"
+                    url = "https://github.com/Florianisme/SpringDatabaseTest/issues"
+                }
+            }
+        }
+    }
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+            username = project.findProperty("gpr.ossrhUser") ?: System.getenv("OSSRHUSER")
+            password = project.findProperty("gpr.ossrhPassword") ?: System.getenv("OSSRHPASSWORD")
+        }
+    }
+}
+
+signing {
+    def signingKey = findProperty("signingKey") ?: System.getenv("GPG_PRIVATE_KEY")
+    def signingPassword = findProperty("signingPassword") ?: System.getenv("GPG_PASSPHRASE")
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign publishing.publications.mavenJava
 }
 
 test {
