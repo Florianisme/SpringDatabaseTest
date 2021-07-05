@@ -15,14 +15,14 @@ import org.springframework.test.context.support.AbstractTestExecutionListener;
 import liquibase.exception.LiquibaseException;
 import liquibase.integration.spring.SpringLiquibase;
 
-public class TestExecutionFinishedListener extends AbstractTestExecutionListener {
+class TestExecutionFinishedListener extends AbstractTestExecutionListener {
 
 	private DatabaseTest databaseTest;
 	private LocalSessionFactoryBean sessionFactory;
 	private Session session;
 
 	@Override
-	public void beforeTestExecution(TestContext testContext) {
+	public void beforeTestMethod(TestContext testContext) {
 		databaseTest = getAnnotationInstance(testContext);
 
 		registerBeans(testContext);
