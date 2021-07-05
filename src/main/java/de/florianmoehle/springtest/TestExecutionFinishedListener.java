@@ -36,6 +36,7 @@ class TestExecutionFinishedListener extends AbstractTestExecutionListener {
 
 		if (databaseTest.enableLiquibase()) {
 			applicationContext.registerBean(SpringLiquibase.class, liquibaseSupplier());
+			applicationContext.getBean(SpringLiquibase.class); // Needed to initialize Liquibase before first test
 		}
 	}
 
@@ -72,6 +73,7 @@ class TestExecutionFinishedListener extends AbstractTestExecutionListener {
 
 	private Supplier<SpringLiquibase> liquibaseSupplier() {
 		return () -> {
+			System.out.println("### Liquibase initialization before Test ###");
 			SpringLiquibase liquibase = new SpringLiquibase();
 			liquibase.setDataSource(dataSource());
 			liquibase.setChangeLog(databaseTest.changelogPath());
@@ -93,6 +95,7 @@ class TestExecutionFinishedListener extends AbstractTestExecutionListener {
 	@Override
 	public void afterTestMethod(TestContext testContext) throws LiquibaseException {
 		if (databaseTest.enableLiquibase() && databaseTest.cleanDatabase()) {
+			System.out.println("### Liquibase Cleanup after Test ###");
 			reinitializeDatabase(testContext);
 		}
 		closeOldSession();
