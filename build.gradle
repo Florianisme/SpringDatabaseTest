@@ -20,6 +20,14 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = 'VERSION_11'
+    targetCompatibility = 'VERSION_11'
+
+    withJavadocJar()
+    withSourcesJar()
+}
+
 dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
@@ -63,6 +71,11 @@ publishing {
                         name = "Florian Möhle"
                         email = "florian.m9782@gmail.com"
                     }
+                }
+                scm {
+                    connection = "scm:git:https://github.com/Florianisme/SpringDatabaseTest.git"
+                    developerConnection = "scm:git:ssh://github.com/Florianisme/SpringDatabaseTest.git"
+                    url = "https://github.com/Florianisme/SpringDatabaseTest"
                 }
                 issueManagement {
                     system = "GitHub"
