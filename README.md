@@ -21,7 +21,7 @@ for each run. Liquibase changelogs can be run before each Testcase.
   <td>
 
 ```groovy
-testImplementation 'de.florianmoehle:springtest:0.0.3'
+testImplementation 'de.florian-moehle:spring-database-test:0.0.3'
 ```
 
    </td>
@@ -30,8 +30,8 @@ testImplementation 'de.florianmoehle:springtest:0.0.3'
 ```xml
 
 <dependency>
-    <groupId>de.florianmoehle</groupId>
-    <artifactId>springtest</artifactId>
+    <groupId>de.florian-moehle</groupId>
+    <artifactId>spring-database-test</artifactId>
     <version>0.0.3</version>
     <scope>test</scope>
 </dependency>
@@ -58,7 +58,7 @@ A fresh Session or SessionFactory instance for each Test method
 
 ```java
 // Use the @DatabaseTest annotation
-@DatabaseTest(annotatedPackages = "de.florianmoehle.springtest.entities")
+@DatabaseTest(annotatedPackages = "de.florianmoehle.springdatabasetest.entities")
 public class InitTest {
 
 	@Test
@@ -77,7 +77,7 @@ public class InitTest {
 A new Session for each test with a single annotation
 
 ```java
-@DatabaseTest(annotatedPackages = "de.florianmoehle.springtest.entities")
+@DatabaseTest(annotatedPackages = "de.florianmoehle.springdatabasetest.entities")
 public class InitTest {
 
 	private Session session;

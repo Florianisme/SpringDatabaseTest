@@ -1,4 +1,4 @@
-package de.florianmoehle.springtest;
+package de.florianmoehle.springdatabasetest;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

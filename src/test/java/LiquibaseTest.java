@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.florianmoehle.springtest.DatabaseTest;
+import de.florianmoehle.springdatabasetest.DatabaseTest;
 import entities.Post;
 
 @DatabaseTest(changelogPath = "classpath:/db/changelog/liquibaseTest.xml", annotatedClasses = Post.class)

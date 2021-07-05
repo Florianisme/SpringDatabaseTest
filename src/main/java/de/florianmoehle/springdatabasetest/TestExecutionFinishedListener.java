@@ -1,4 +1,4 @@
-package de.florianmoehle.springtest;
+package de.florianmoehle.springdatabasetest;
 
 import java.util.function.Supplier;
 import javax.sql.DataSource;

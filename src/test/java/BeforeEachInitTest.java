@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import de.florianmoehle.springtest.DatabaseTest;
+import de.florianmoehle.springdatabasetest.DatabaseTest;
 
 @DatabaseTest(annotatedPackages = "de.florianisme.springtest", enableLiquibase = false)
 public class BeforeEachInitTest {

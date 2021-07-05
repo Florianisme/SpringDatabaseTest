@@ -1,4 +1,4 @@
-package de.florianmoehle.springtest;
+package de.florianmoehle.springdatabasetest;
 
 import org.springframework.context.annotation.Configuration;
 
