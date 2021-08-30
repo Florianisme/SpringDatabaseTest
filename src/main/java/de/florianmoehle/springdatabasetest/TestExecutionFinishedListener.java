@@ -116,6 +116,7 @@ class TestExecutionFinishedListener extends AbstractTestExecutionListener {
 		ApplicationContext app = testContext.getApplicationContext();
 		SpringLiquibase springLiquibase = app.getBean(SpringLiquibase.class);
 		springLiquibase.setDropFirst(true);
+		springLiquibase.setShouldRun(false);
 		springLiquibase.afterPropertiesSet();
 	}
 }

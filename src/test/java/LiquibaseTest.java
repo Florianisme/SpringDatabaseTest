@@ -1,6 +1,3 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import de.florianmoehle.springdatabasetest.DatabaseTest;
 import entities.Post;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DatabaseTest(changelogPath = "classpath:/db/changelog/liquibaseTest.xml", annotatedClasses = Post.class)
 public class LiquibaseTest {
 
 	@Test
 	public void testPostsTableCreated(@Autowired Session session) {
-		session.get(Post.class, 0L);
+		assertNull(session.get(Post.class, 0L));
 		// No exception means the table was created
 	}
 
 	@Test
 	public void testPostsCanBeInsertedAndRead(@Autowired Session session) {
+		assertNull(session.get(Post.class, 0L));
 		Post originalPost = new Post(0L, "Test Title", "Florian Moehle", "This is my first post");
 		session.save(originalPost);
 
